@@ -44,10 +44,6 @@ resource "google_compute_instance" "hashicat" {
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-1804-lts"
     }
-
-  labels = {
-    department = "devops"
-  }
   }
 
   network_interface {
@@ -61,7 +57,10 @@ resource "google_compute_instance" "hashicat" {
   }
 
   tags = ["http-server"]
-
+  
+  labels = {
+    department = "devops"
+  }
 }
 
 resource "null_resource" "configure-cat-app" {
